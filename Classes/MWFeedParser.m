@@ -659,13 +659,30 @@
 				
 				// Item
 				if (!processed) {
-					if ([currentPath isEqualToString:@"/feed/entry/title"]) { if (processedText.length > 0) item.title = processedText; processed = YES; }
-					else if ([currentPath isEqualToString:@"/feed/entry/link"]) { [self processAtomLink:currentElementAttributes andAddToMWObject:item]; processed = YES; }
-					else if ([currentPath isEqualToString:@"/feed/entry/id"]) { if (processedText.length > 0) item.identifier = processedText; processed = YES; }
-					else if ([currentPath isEqualToString:@"/feed/entry/summary"]) { if (processedText.length > 0) item.summary = processedText; processed = YES; }
-					else if ([currentPath isEqualToString:@"/feed/entry/content"]) { if (processedText.length > 0) item.content = processedText; processed = YES; }
-					else if ([currentPath isEqualToString:@"/feed/entry/published"]) { if (processedText.length > 0) item.date = [NSDate dateFromInternetDateTimeString:processedText formatHint:DateFormatHintRFC3339]; processed = YES; }
-					else if ([currentPath isEqualToString:@"/feed/entry/updated"]) { if (processedText.length > 0) item.updated = [NSDate dateFromInternetDateTimeString:processedText formatHint:DateFormatHintRFC3339]; processed = YES; }
+					if ([currentPath isEqualToString:@"/feed/entry/title"]) {
+                        if (processedText.length > 0) item.title = processedText; processed = YES;
+                    } else if ([currentPath isEqualToString:@"/feed/entry/link"]) {
+                        [self processAtomLink:currentElementAttributes andAddToMWObject:item]; processed = YES;
+                    } else if ([currentPath isEqualToString:@"/feed/entry/id"]) {
+                        if (processedText.length > 0) item.identifier = processedText; processed = YES;
+                    } else if ([currentPath isEqualToString:@"/feed/entry/summary"]) {
+                        if (processedText.length > 0) item.summary = processedText; processed = YES;
+                    } else if ([currentPath isEqualToString:@"/feed/entry/content"]) {
+                        if (processedText.length > 0) item.content = processedText; processed = YES;
+                    } else if ([currentPath isEqualToString:@"/feed/entry/published"]) {
+                        if (processedText.length > 0){
+                            item.date = [NSDate dateFromInternetDateTimeString:processedText formatHint:DateFormatHintRFC3339];
+                            processed = YES;
+                        }
+                    } else if ([currentPath isEqualToString:@"/feed/entry/updated"]) {
+                        if (processedText.length > 0){
+                            item.updated = [NSDate dateFromInternetDateTimeString:processedText formatHint:DateFormatHintRFC3339];
+                            processed = YES;
+                        }
+                    } else if ([currentPath isEqualToString:@"/feed/entry/thr:total"]) {
+                        NSNumberFormatter *nf = [[NSNumberFormatter alloc]init];
+                        item.numberOfComments = [nf numberFromString:processedText];
+                    }
 				}
 				
 				// Info
@@ -940,6 +957,11 @@
 - (BOOL)processAtomLink:(NSDictionary *)attributes andAddToMWObject:(id)MWObject {
 	if (attributes && [attributes objectForKey:@"rel"]) {
 		
+        if ([[attributes objectForKey:@"rel"] isEqualToString:@"replies"] &&
+            [[attributes objectForKey:@"type"] isEqualToString:@"application/atom+xml"]) {
+            [(MWFeedItem *)MWObject setCommentsFeedURL:[attributes objectForKey:@"href"]];
+            return YES;
+        }
 		// Use as link if rel == alternate
 		if ([[attributes objectForKey:@"rel"] isEqualToString:@"alternate"]) {
 			[MWObject setLink:[attributes objectForKey:@"href"]]; // Can be added to MWFeedItem or MWFeedInfo
