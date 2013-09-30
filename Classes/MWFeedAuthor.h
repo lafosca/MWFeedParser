@@ -8,10 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MWFeedAuthor : NSObject
+@interface MWFeedAuthor : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *avatarURL;
 @property (nonatomic, strong) NSString *url;
 @property (nonatomic, strong) NSString *email;
 

@@ -60,7 +60,7 @@
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, copy) NSString *commentsFeedURL;
 @property (nonatomic, copy) NSNumber *numberOfComments;
-@property (nonatomic, copy) MWFeedAuthor *author;
+@property (nonatomic, strong) MWFeedAuthor *author;
 @property (nonatomic, copy) NSArray *enclosures;
 
 @end
