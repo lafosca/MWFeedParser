@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Feed' do |ss|
-    ss.source_files =  'Classes/MWFeedInfo.{h,m}', 'Classes/MWFeedItem.{h,m}', 'Classes/MWFeedParser.{h,m}', 'Classes/MWFeedParser_Private.h'
+    ss.source_files =  'Classes/MWFeedInfo.{h,m}', 'Classes/MWFeedItem.{h,m}', 'Classes/MWFeedParser.{h,m}', 'Classes/MWFeedParser_Private.h', 'Classes/MWFeedAuthor.{h,m}'
     dependency = 'NSString+XMLEntities'
     dependency = 'NSDate+InternetDateTime'
   end
