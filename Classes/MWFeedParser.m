@@ -679,6 +679,18 @@
                             item.updated = [NSDate dateFromInternetDateTimeString:processedText formatHint:DateFormatHintRFC3339];
                             processed = YES;
                         }
+                    } else if ([currentPath isEqualToString:@"/feed/entry/author/name"]) {
+                        if (!item.author) item.author = [MWFeedAuthor new];
+                        item.author.name = processedText;
+                    } else if ([currentPath isEqualToString:@"/feed/entry/author/uri"]) {
+                        if (!item.author) item.author = [MWFeedAuthor new];
+                        item.author.url = processedText;
+                    } else if ([currentPath isEqualToString:@"/feed/entry/author/email"]) {
+                        if (!item.author) item.author = [MWFeedAuthor new];
+                        item.author.email = processedText;
+                    } else if ([currentPath isEqualToString:@"/feed/entry/author/gd:image"]) {
+                        if (!item.author) item.author = [MWFeedAuthor new];
+                        item.author.avatarURL = processedText;
                     } else if ([currentPath isEqualToString:@"/feed/entry/thr:total"]) {
                         NSNumberFormatter *nf = [[NSNumberFormatter alloc]init];
                         item.numberOfComments = [nf numberFromString:processedText];

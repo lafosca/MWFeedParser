@@ -24,6 +24,7 @@
 		4CC8960B119F0CED00ED61B6 /* MWFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC89608119F0CED00ED61B6 /* MWFeedItem.m */; };
 		4CC8960F119F0CFB00ED61B6 /* NSString+XMLEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8960E119F0CFB00ED61B6 /* NSString+XMLEntities.m */; };
 		4CC89612119F0D0C00ED61B6 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC89611119F0D0C00ED61B6 /* RootViewController.m */; };
+		A01D743317FA1F4C00EF9D3F /* MWFeedAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = A01D743217FA1F4C00EF9D3F /* MWFeedAuthor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,8 @@
 		4CC89610119F0D0C00ED61B6 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		4CC89611119F0D0C00ED61B6 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* MWFeedParser-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MWFeedParser-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		A01D743117FA1F4C00EF9D3F /* MWFeedAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedAuthor.h; sourceTree = "<group>"; };
+		A01D743217FA1F4C00EF9D3F /* MWFeedAuthor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedAuthor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +165,8 @@
 				4CC89606119F0CED00ED61B6 /* MWFeedInfo.m */,
 				4CC89607119F0CED00ED61B6 /* MWFeedItem.h */,
 				4CC89608119F0CED00ED61B6 /* MWFeedItem.m */,
+				A01D743117FA1F4C00EF9D3F /* MWFeedAuthor.h */,
+				A01D743217FA1F4C00EF9D3F /* MWFeedAuthor.m */,
 			);
 			name = MWFeedParser;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 				1D3623260D0F684500981E51 /* MWFeedParserAppDelegate.m in Sources */,
 				4CC89609119F0CED00ED61B6 /* MWFeedParser.m in Sources */,
 				4CC8960A119F0CED00ED61B6 /* MWFeedInfo.m in Sources */,
+				A01D743317FA1F4C00EF9D3F /* MWFeedAuthor.m in Sources */,
 				4CC8960B119F0CED00ED61B6 /* MWFeedItem.m in Sources */,
 				4CC8960F119F0CFB00ED61B6 /* NSString+XMLEntities.m in Sources */,
 				4CC89612119F0D0C00ED61B6 /* RootViewController.m in Sources */,

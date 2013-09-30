@@ -54,6 +54,8 @@
 	[updated release];
 	[summary release];
 	[content release];
+    [commentsFeedURL release];
+    [author release];
 	[enclosures release];
 	[super dealloc];
 }
@@ -69,6 +71,7 @@
 		updated = [[decoder decodeObjectForKey:@"updated"] retain];
 		summary = [[decoder decodeObjectForKey:@"summary"] retain];
 		content = [[decoder decodeObjectForKey:@"content"] retain];
+        author = [[decoder decodeObjectForKey:@"author"] retain];
 		enclosures = [[decoder decodeObjectForKey:@"enclosures"] retain];
 	}
 	return self;
@@ -82,6 +85,7 @@
 	if (updated) [encoder encodeObject:updated forKey:@"updated"];
 	if (summary) [encoder encodeObject:summary forKey:@"summary"];
 	if (content) [encoder encodeObject:content forKey:@"content"];
+    if (author) [encoder encodeObject:author forKey:@"author"];
 	if (enclosures) [encoder encodeObject:enclosures forKey:@"enclosures"];
 }
 
